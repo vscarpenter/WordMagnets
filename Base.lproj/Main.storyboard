@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="X76-hV-zmJ">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Word Magnet-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WordMagnets" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +15,67 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blue-background" translatesAutoresizingMaskIntoConstraints="NO" id="eZe-5S-LgP">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="02R-AO-l27">
+                                <rect key="frame" x="16" y="68" width="96" height="34"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="96" id="bhU-Q8-qHa"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="16"/>
+                                <state key="normal" title="Screenshot">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="screenshotButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oqg-TR-wf7"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="eZe-5S-LgP" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="9GM-Kz-c2J"/>
+                            <constraint firstAttribute="trailing" secondItem="eZe-5S-LgP" secondAttribute="trailing" id="JHk-RH-oXP"/>
+                            <constraint firstItem="eZe-5S-LgP" firstAttribute="top" secondItem="02R-AO-l27" secondAttribute="bottom" constant="-102" id="LV0-1F-dv4"/>
+                            <constraint firstItem="eZe-5S-LgP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Ucj-qI-tsV"/>
+                            <constraint firstItem="eZe-5S-LgP" firstAttribute="leading" secondItem="02R-AO-l27" secondAttribute="trailing" constant="-112" id="Zvu-34-rCR"/>
+                            <constraint firstItem="eZe-5S-LgP" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="j72-YG-9GC"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Word Magnet" id="rKK-DZ-M67"/>
+                    <connections>
+                        <outlet property="imageView" destination="eZe-5S-LgP" id="pIN-DX-xNT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="260" y="143"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="gfX-Mn-4k0">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="X76-hV-zmJ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="HyQ-b0-KaX">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="18"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="1m9-vT-G2u"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hqc-2n-COp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="311" y="1151"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="blue-background" width="640" height="960"/>
+    </resources>
 </document>

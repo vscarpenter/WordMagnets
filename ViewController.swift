@@ -16,13 +16,17 @@ class ViewController: UIViewController {
     var animator: UIDynamicAnimator!
     var snap: UISnapBehavior!
     
+    @IBOutlet var imageView: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         animator = UIDynamicAnimator(referenceView: view)
         
         view.backgroundColor = UIColor.blackColor()
-        var wordArray = ["Katie ","loves ","instagram ","mom ","dad", "youtube", "cookies"]
+        imageView.userInteractionEnabled = true
+        
+        var wordArray = ["I ","like ","to ","eat ","pizza", "my", "favorite"]
         
         for word in wordArray {
             var label = UILabel()
@@ -35,7 +39,7 @@ class ViewController: UIViewController {
             
             label.center = CGPoint(x: x, y: y)
             label.backgroundColor = UIColor.whiteColor()
-            view.addSubview(label)
+            imageView.addSubview(label)
             
             var panGesture = UIPanGestureRecognizer(target: self, action: Selector("handlePanGesture:"))
             
@@ -63,9 +67,26 @@ class ViewController: UIViewController {
         
         var label = panGesture.view as UILabel
         label.center = CGPoint(x: label.center.x + translation.x, y: label.center.y + translation.y)
+    }
+    
+    @IBAction func screenshotButtonPressed(sender: AnyObject) {
+        println("screenshot pressed")
+        var image = takeScreenshot(imageView)
+        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+    }
+    
+    func takeScreenshot(theView: UIView) -> UIImage {
         
+        UIGraphicsBeginImageContextWithOptions(theView.bounds.size, true, 0.0)
+        theView.drawViewHierarchyInRect(theView.bounds, afterScreenUpdates: true)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return image
         
     }
+    
+    
     
 }
 
